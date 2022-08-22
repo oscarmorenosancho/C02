@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_strupcase.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/18 11:53:46 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/08/22 18:44:23 by omoreno-         ###   ########.fr       */
+/*   Created: 2022/08/18 10:31:00 by omoreno-          #+#    #+#             */
+/*   Updated: 2022/08/22 11:10:29 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-unsigned int	ft_strlcpy(char *dest, char *src, unsigned int n)
+int	ft_char_is_lowercase_ex07(char c)
 {
-	unsigned int	i;
+	return (c >= 'a' && c <= 'z');
+}
+
+char	*ft_strupcase(char *str)
+{
+	int	i;
 
 	i = 0;
-	while (src[i])
+	while (str[i])
 	{
-		if (i < n - 1)
-			dest[i] = src[i];
+		if (ft_char_is_lowercase_ex07(str[i]))
+			str[i] = str[i] - 32;
 		i++;
 	}
-	if (i < n)
-		dest[i] = 0;
-	else
-		dest[n - 1] = 0;
-	return (i);
+	return (str);
 }

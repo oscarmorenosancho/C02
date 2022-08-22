@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_str_is_uppercase.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/18 11:53:46 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/08/22 18:44:23 by omoreno-         ###   ########.fr       */
+/*   Created: 2022/08/18 09:59:17 by omoreno-          #+#    #+#             */
+/*   Updated: 2022/08/22 11:07:35 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-unsigned int	ft_strlcpy(char *dest, char *src, unsigned int n)
+int	ft_char_is_uppercase_ex05(char c)
 {
-	unsigned int	i;
+	return (c >= 'A' && c <= 'Z');
+}
+
+int	ft_str_is_uppercase(char *str)
+{
+	int	i;
+	int	is_uppercase;
 
 	i = 0;
-	while (src[i])
+	is_uppercase = 1;
+	while (str[i] && is_uppercase)
 	{
-		if (i < n - 1)
-			dest[i] = src[i];
+		if (! ft_char_is_uppercase_ex05(str[i]))
+			is_uppercase = 0;
 		i++;
 	}
-	if (i < n)
-		dest[i] = 0;
-	else
-		dest[n - 1] = 0;
-	return (i);
+	return (is_uppercase);
 }

@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/18 11:53:46 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/08/22 18:44:23 by omoreno-         ###   ########.fr       */
+/*   Created: 2022/08/18 08:44:45 by omoreno-          #+#    #+#             */
+/*   Updated: 2022/08/19 09:05:37 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-unsigned int	ft_strlcpy(char *dest, char *src, unsigned int n)
+char	*ft_strncpy(char *dest, char *src, unsigned int n)
 {
 	unsigned int	i;
+	int				above_length;
 
 	i = 0;
-	while (src[i])
+	above_length = 0;
+	while (i < n)
 	{
-		if (i < n - 1)
+		if (! src[i])
+			above_length = 1;
+		if (! above_length)
 			dest[i] = src[i];
+		else
+			dest[i] = 0;
 		i++;
 	}
-	if (i < n)
-		dest[i] = 0;
-	else
-		dest[n - 1] = 0;
-	return (i);
+	return (dest);
 }

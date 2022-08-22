@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/19 08:23:54 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/08/22 18:24:16 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/08/22 10:28:17 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,8 +86,6 @@ void	ft_format_line(char *addr, char *buf, unsigned int size)
 			buf_offset[i] = byte_addr[i];
 		i++;
 	}
-	buf[16] = ':';
-	buf[74] = '\n';
 }
 
 void	*ft_print_memory(void *addr, unsigned int size)

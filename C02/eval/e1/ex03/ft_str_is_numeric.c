@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_str_is_numeric.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/18 11:53:46 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/08/22 18:44:23 by omoreno-         ###   ########.fr       */
+/*   Created: 2022/08/18 09:48:47 by omoreno-          #+#    #+#             */
+/*   Updated: 2022/08/22 11:06:09 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-unsigned int	ft_strlcpy(char *dest, char *src, unsigned int n)
+int	ft_char_is_numeric_ex03(char c)
 {
-	unsigned int	i;
+	return (c >= '0' && c <= '9');
+}
+
+int	ft_str_is_numeric(char *str)
+{
+	int	i;
+	int	is_numeric;
 
 	i = 0;
-	while (src[i])
+	is_numeric = 1;
+	while (str[i] && is_numeric)
 	{
-		if (i < n - 1)
-			dest[i] = src[i];
+		if (! ft_char_is_numeric_ex03(str[i]))
+			is_numeric = 0;
 		i++;
 	}
-	if (i < n)
-		dest[i] = 0;
-	else
-		dest[n - 1] = 0;
-	return (i);
+	return (is_numeric);
 }

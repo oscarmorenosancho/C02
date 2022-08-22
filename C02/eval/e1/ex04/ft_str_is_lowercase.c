@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_str_is_lowercase.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/18 11:53:46 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/08/22 18:44:23 by omoreno-         ###   ########.fr       */
+/*   Created: 2022/08/18 09:56:29 by omoreno-          #+#    #+#             */
+/*   Updated: 2022/08/22 11:06:46 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-unsigned int	ft_strlcpy(char *dest, char *src, unsigned int n)
+int	ft_char_is_lowercase_ex04(char c)
 {
-	unsigned int	i;
+	return (c >= 'a' && c <= 'z');
+}
+
+int	ft_str_is_lowercase(char *str)
+{
+	int	i;
+	int	is_lowercase;
 
 	i = 0;
-	while (src[i])
+	is_lowercase = 1;
+	while (str[i] && is_lowercase)
 	{
-		if (i < n - 1)
-			dest[i] = src[i];
+		if (! ft_char_is_lowercase_ex04(str[i]))
+			is_lowercase = 0;
 		i++;
 	}
-	if (i < n)
-		dest[i] = 0;
-	else
-		dest[n - 1] = 0;
-	return (i);
+	return (is_lowercase);
 }
