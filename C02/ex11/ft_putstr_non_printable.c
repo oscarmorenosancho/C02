@@ -6,13 +6,13 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 12:46:07 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/08/19 11:24:19 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/08/22 11:32:22 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include<unistd.h>
 
-int	ft_char_is_scapecode(char c)
+int	ft_char_is_scapecode_ex11(char c)
 {
 	unsigned char	uc;
 
@@ -20,7 +20,7 @@ int	ft_char_is_scapecode(char c)
 	return ((uc < 32) || uc == 127 || uc == 255);
 }
 
-char	ft_nibble_to_hex(char nib)
+char	ft_nibble_to_hex_ex11(char nib)
 {
 	char	ret;
 
@@ -35,10 +35,10 @@ char	ft_nibble_to_hex(char nib)
 	return (ret);
 }
 
-void	ft_char_to_hexcode(char code, char *buf)
+void	ft_char_to_hexcode_ex11(char code, char *buf)
 {
-	buf[1] = ft_nibble_to_hex(code >> 4);
-	buf[2] = ft_nibble_to_hex(code);
+	buf[1] = ft_nibble_to_hex_ex11(code >> 4);
+	buf[2] = ft_nibble_to_hex_ex11(code);
 }
 
 void	ft_putstr_non_printable(char *str)
@@ -50,9 +50,9 @@ void	ft_putstr_non_printable(char *str)
 	i = 0;
 	while (str[i])
 	{
-		if (ft_char_is_scapecode(str[i]))
+		if (ft_char_is_scapecode_ex11(str[i]))
 		{
-			ft_char_to_hexcode(str[i], hex_code);
+			ft_char_to_hexcode_ex11(str[i], hex_code);
 			write(1, hex_code, 3);
 		}
 		else

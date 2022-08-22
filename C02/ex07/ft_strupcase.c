@@ -6,11 +6,11 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 10:31:00 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/08/18 14:02:00 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/08/22 11:10:29 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_char_is_lowercase(char c)
+int	ft_char_is_lowercase_ex07(char c)
 {
 	return (c >= 'a' && c <= 'z');
 }
@@ -22,7 +22,7 @@ char	*ft_strupcase(char *str)
 	i = 0;
 	while (str[i])
 	{
-		if (ft_char_is_lowercase(str[i]))
+		if (ft_char_is_lowercase_ex07(str[i]))
 			str[i] = str[i] - 32;
 		i++;
 	}

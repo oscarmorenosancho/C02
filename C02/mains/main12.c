@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/19 12:22:14 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/08/19 17:00:35 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/08/22 09:44:17 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,11 @@ int 	ft_char_is_scapecode(char c);
 
 int	main(void)
 {
-	char	src[64] = "Example \nstring with 32 chars + 0";
+	char	src[64] = "Example string with 32 chars, more than you see \n\t\"";
 	//char	buf[76];
 	//int		i;
 
-	ft_print_memory(src, 49);
+	ft_print_memory(src, 62);
 
 	//i = 0;
 	//while (i < 75)

@@ -6,11 +6,11 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 09:59:17 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/08/18 13:59:29 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/08/22 11:07:35 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_char_is_uppercase(char c)
+int	ft_char_is_uppercase_ex05(char c)
 {
 	return (c >= 'A' && c <= 'Z');
 }
@@ -24,7 +24,7 @@ int	ft_str_is_uppercase(char *str)
 	is_uppercase = 1;
 	while (str[i] && is_uppercase)
 	{
-		if (! ft_char_is_uppercase(str[i]))
+		if (! ft_char_is_uppercase_ex05(str[i]))
 			is_uppercase = 0;
 		i++;
 	}

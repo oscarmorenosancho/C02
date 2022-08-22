@@ -6,11 +6,11 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 09:48:47 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/08/18 09:52:32 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/08/22 11:06:09 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_char_is_numeric(char c)
+int	ft_char_is_numeric_ex03(char c)
 {
 	return (c >= '0' && c <= '9');
 }
@@ -24,7 +24,7 @@ int	ft_str_is_numeric(char *str)
 	is_numeric = 1;
 	while (str[i] && is_numeric)
 	{
-		if (! ft_char_is_numeric(str[i]))
+		if (! ft_char_is_numeric_ex03(str[i]))
 			is_numeric = 0;
 		i++;
 	}
