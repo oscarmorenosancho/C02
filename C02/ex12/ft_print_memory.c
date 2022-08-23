@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/19 08:23:54 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/08/22 18:24:16 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/08/23 10:37:50 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ char	ft_nibble_to_hex(char nib)
 	return (ret);
 }
 
-void	ft_mem_to_hexcode(char *mem, char *buf, unsigned int bytes, int a_c)
+void	ft_mem_to_hex(char *mem, char *buf, unsigned int bytes, int a_c)
 {
 	unsigned int	i;
 	unsigned int	nib_count;
@@ -43,11 +43,14 @@ void	ft_mem_to_hexcode(char *mem, char *buf, unsigned int bytes, int a_c)
 	unsigned char	*p_bytes;
 
 	i = 0;
+	nib_count = 16;
 	p_bytes = (unsigned char *)&mem;
-	if (a_c)
-		nib_count = bytes * 2;
-	else
-		nib_count = 16;
+	if (a_c && bytes >= 1 && bytes < 2)
+		nib_count = 2;
+	else if (a_c && bytes >= 2 && bytes <= 16)
+		nib_count = 4;
+	else if (a_c)
+		nib_count = 0;
 	while (i < nib_count)
 	{
 		nib = p_bytes[7 - (i / 2)];
@@ -67,13 +70,12 @@ void	ft_format_line(char *addr, char *buf, unsigned int size)
 
 	byte_addr = addr;
 	buf_offset = buf;
-	ft_mem_to_hexcode(addr, buf_offset, 8, 0);
+	ft_mem_to_hex(addr, buf_offset, 8, 0);
 	i = 0;
 	buf_offset += 18;
 	while (i < 8)
 	{
-		if ((i * 2) < size)
-			ft_mem_to_hexcode(byte_addr + 2 * i, buf_offset + 5 * i, 2, 1);
+		ft_mem_to_hex(byte_addr + 2 * i, buf_offset + 5 * i, size - (i * 2), 1);
 		i++;
 	}
 	i = 0;
@@ -86,8 +88,6 @@ void	ft_format_line(char *addr, char *buf, unsigned int size)
 			buf_offset[i] = byte_addr[i];
 		i++;
 	}
-	buf[16] = ':';
-	buf[74] = '\n';
 }
 
 void	*ft_print_memory(void *addr, unsigned int size)
@@ -96,10 +96,8 @@ void	*ft_print_memory(void *addr, unsigned int size)
 	unsigned int	yet_printed;
 	int				chunk_size;
 	unsigned int	i;
-	char			*b_addr;
 
 	yet_printed = 0;
-	b_addr = (char *) addr;
 	while (yet_printed < size)
 	{
 		i = 0;
@@ -111,7 +109,8 @@ void	*ft_print_memory(void *addr, unsigned int size)
 		chunk_size = (int)(size - yet_printed);
 		if (chunk_size > 16)
 			chunk_size = 16;
-		ft_format_line(b_addr + yet_printed, buf, chunk_size);
+		ft_format_line((char *) addr + yet_printed, buf, chunk_size);
+		buf[16] = ':';
 		buf[74] = '\n';
 		write (1, buf, 75);
 		yet_printed += chunk_size;

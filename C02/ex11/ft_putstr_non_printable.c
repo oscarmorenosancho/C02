@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 12:46:07 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/08/22 11:32:22 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/08/23 09:39:58 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,4 +61,5 @@ void	ft_putstr_non_printable(char *str)
 		}
 		i++;
 	}
+	write(1, "\n", 1);
 }

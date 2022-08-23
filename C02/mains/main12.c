@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/19 12:22:14 by omoreno-          #+#    #+#             */
-/*   Updated: 2022/08/22 09:44:17 by omoreno-         ###   ########.fr       */
+/*   Updated: 2022/08/23 09:47:26 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	main(void)
 	//char	buf[76];
 	//int		i;
 
-	ft_print_memory(src, 62);
+	ft_print_memory(src, 61);
 
 	//i = 0;
 	//while (i < 75)
